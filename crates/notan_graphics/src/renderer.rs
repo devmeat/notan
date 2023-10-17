@@ -113,7 +113,7 @@ impl Renderer {
     }
 
     pub fn bind_texture(&mut self, location: u32, texture: &Texture) {
-        self.bind_texture_slot(self.slot_count, location, texture);
+        self.bind_texture_slot(0, location, texture);
         self.slot_count += 1;
     }
 
