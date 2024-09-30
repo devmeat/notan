@@ -52,7 +52,7 @@ pub enum Event {
     /// User's touch the screen
     TouchStart { id: u64, x: f32, y: f32 },
 
-    /// User0s move the touch
+    /// User's move the touch
     TouchMove { id: u64, x: f32, y: f32 },
 
     /// Touch event ends
