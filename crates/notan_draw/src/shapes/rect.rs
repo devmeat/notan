@@ -36,7 +36,7 @@ impl Rectangle {
             alpha: 1.0,
             matrix: None,
             rounded_corners: None,
-            corner_tolerance: FillOptions::DEFAULT_TOLERANCE,
+            corner_tolerance: 0.1,
             blend_mode: None,
             alpha_mode: None,
             modes: [None; 2],
@@ -65,6 +65,9 @@ impl Rectangle {
 
     pub fn top_right_radius(&mut self, radius: f32) -> &mut Self {
         let mut corners = self.rounded_corners.unwrap_or([0.0, 0.0, 0.0, 0.0]);
+        if corners[0] < 0.001 {
+            corners[0] = f32::EPSILON;
+        }
         corners[1] = radius;
         self.rounded_corners = Some(corners);
         self
